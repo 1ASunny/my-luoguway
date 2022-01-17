@@ -11,3 +11,48 @@ n*(n-1)/2*(n-2)/3*(n-3)/4
 //2.一个很棒的数组处理
 apper[s[i]-'a']++;
 
+//3.关于位数的问题
+bool ws(int k)  //位数
+    {
+        if(k>=10 && k<100 && k!=11 || k>=1000 && k<10000)return false;
+        if(k>=100000 && k<1000000 || k>=10000000 && k<100000000)return false;
+        return true;
+    }//洛谷题解上抄的，id-name:linyorson,致谢
+    //其实不用傻哈哈地用循环确定精确的位数（是我本人了🥀），达到目的就行；
+    //目的在于，偶数位必然不符合，If判断，筛选完事
+//4.关于素数
+ bool ss(int k)   //素数
+    {     
+        for(int i=3;i*i<=k;i+=2)if(k%i==0)return false;//+2节省一些     
+        return true;
+    }
+    //（1）线性筛
+    int vis[MAXN];
+int prime[MAXN];
+void Prime()
+{
+	int cnt=0;
+	for(int i=2;i<=n;i++)
+    {
+        if(!vis[i]) prime[cnt++]=i;
+        for(int j=0;j<cnt&&i*prime[j]<=n;j++)
+        {
+            vis[i*prime[j]]=i;
+            if(i%prime[j]==0) break;
+        }
+    }
+}
+//（2）埃拉托斯特尼筛
+const int MAXN = 1000000；  
+void Prime()  
+{  
+    for (int i=0; i<MAXN; i++) prime[i]=1;  //先把每个数都定义为合数
+    prime[0]=prime[1]=0;  
+    for (int i=2; i<MAXN; i++)  
+    {  
+        if (!prime[i]) continue;  
+        for (int j=i*2; j<MAXN; j+=i) prime[j] = 0;  //将i的倍数标记为合数
+    }  
+}
+//洛谷题解搬运，id-name:SocietyNiu
+//不会但我能存
