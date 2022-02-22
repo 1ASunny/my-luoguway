@@ -1,0 +1,26 @@
+//1012//**/间的代码能在本地过，oj上不给过
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+bool cmp(string a,string b){
+	/*if(a[0]!=b[0])return a>b;
+	else {
+		ll x=a.size();ll y=b.size();
+		for(int i=0;i<max(x,y);i++){
+			if(i==(min(x,y)-1)){
+				if(y==min(x,y))return a>b;
+				else return a<b;
+			}
+			if(a[i]!=b[i])return a>b;
+			}
+	}*/return b+a<a+b;
+	}
+
+int main(){
+	int n;cin>>n;
+	string a[n];
+	for(int i=0;i<n;i++)cin>>a[i];
+	sort(a,a+n,cmp);
+	for(int i=0;i<n;i++)cout<<a[i];
+	return 0;
+}
