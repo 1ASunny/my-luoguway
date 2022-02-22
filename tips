@@ -68,3 +68,11 @@ void Prime()
 1.幻方
 2.独木桥
 （、、、
+2022-2-22
+1.
+string and sort:
+#
+一些数字，首尾相连，输出最大的组合：
+sort(a,a+n,cmp)
+bool cmp(string a,string b)
+return a+b<b+a;
